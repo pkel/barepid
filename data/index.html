@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <title>barepid</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha256-T/zFmO5s/0aSwc6ics2KLxlfbewyRz6UNw1s3Ppf5gE=" crossorigin="anonymous">
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" crossorigin="anonymous"></script> -->
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <canvas id="temperatureChart" width="100%" height="50rem"></canvas>
+      </div>
+      <div class="row justify-content-center">
+        <div class="col-auto">
+          Temperature: <span id="sensorTemp">n/a</span>&thinsp;°C
+        </div>
+        <div class="col-auto">
+          Heater: <span id="heaterPercent">n/a</span>&thinsp;%
+        </div>
+      </div>
+      <div class="mt-4 mb-4 row justify-content-center">
+        <form id="configForm" autocomplete="off">
+          <div class="form-group">
+            <label for="setpoint">Setpoint</label>
+            <input type="number" step="0.01" class="form-control" name="setpoint" id="setpoint">
+            <small class="form-text text-muted">Set target temperature (°C).</small>
+          </div>
+          <div class="form-group">
+            <label for="wlan_join_hostname">Join WLAN Hostname</label>
+            <input type="text" class="form-control" name="wlan_join_hostname" id="wlan_join_hostname">
+            <small class="form-text text-muted">Name used when joining a local network.</small>
+          </div>
+          <div class="form-group">
+            <label for="wlan_join_ssid">Join WLAN SSID</label>
+            <input type="text" class="form-control" name="wlan_join_ssid" id="wlan_join_ssid">
+            <small class="form-text text-muted">Connect to network. Set empty to not join a network.</small>
+          </div>
+          <div class="form-group">
+            <label for="wlan_join_password">Join WLAN Password</label>
+            <input type="password" class="form-control" name="wlan_join_password" id="wlan_join_password">
+            <small class="form-text text-muted">Password used when joining a network.</small>
+          </div>
+          <div class="form-group">
+            <label for="wlan_ap_ssid">Access Point SSID</label>
+            <input type="text" class="form-control" name="wlan_ap_ssid" id="wlan_ap_ssid">
+            <small class="form-text text-muted">Create Access Point for a network if joining is not configured or failed.</small>
+          </div>
+          <div class="form-group">
+            <label for="wlan_ap_password">Access Point Password</label>
+            <input type="password" class="form-control" name="wlan_ap_password" id="wlan_ap_password">
+            <small class="form-text text-muted">Set this password for the created access point.</small>
+          </div>
+          <button type="submit" class="btn btn-primary">Save</button>
+        </form>
+      </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
+    <script src="js/dashboard.js"></script>
+  </body>
+</html>
